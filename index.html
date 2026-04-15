@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Cat - Mood-Based Cat Photos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🐱 The Cat</h1>
+        <p class="subtitle">Show me a cat matching your mood!</p>
+
+        <div class="moods-section">
+            <div class="moods-title">How are you feeling?</div>
+            <div class="moods-grid">
+                <button class="mood-btn" data-mood="happy">😄 Happy</button>
+                <button class="mood-btn" data-mood="sad">😢 Sad</button>
+                <button class="mood-btn" data-mood="cute">🥰 Cute</button>
+                <button class="mood-btn" data-mood="playful">🤪 Playful</button>
+                <button class="mood-btn" data-mood="sleepy">😴 Sleepy</button>
+                <button class="mood-btn" data-mood="crazy">🤪 Crazy</button>
+                <button class="mood-btn" data-mood="chill">😎 Chill</button>
+                <button class="mood-btn" data-mood="love">💕 Love</button>
+            </div>
+        </div>
+
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Finding the purr-fect cat...</p>
+        </div>
+
+        <div class="cat-display" id="catDisplay">
+            <img class="cat-image" id="catImage" src="" alt="A beautiful cat">
+            <div class="cat-info">
+                <div class="cat-mood" id="catMood"></div>
+            </div>
+            <button class="random-btn" id="nextBtn">Get Another Cat 🐾</button>
+        </div>
+
+        <div class="error-message" id="errorMessage"></div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>

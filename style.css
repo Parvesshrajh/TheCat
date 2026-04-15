@@ -1,0 +1,214 @@
+/* Styled CSS for The Cat app */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #333;
+}
+
+.container {
+    max-width: 700px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+h1 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.subtitle {
+    color: #7f8c8d;
+    margin-bottom: 40px;
+    font-size: 1.2em;
+    font-style: italic;
+}
+
+.moods-section {
+    margin-bottom: 40px;
+}
+
+.moods-title {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #34495e;
+    font-weight: bold;
+}
+
+.moods-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.mood-btn {
+    padding: 15px 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 12px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.mood-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.mood-btn:hover::before {
+    left: 100%;
+}
+
+.mood-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Different colors for different moods */
+.mood-btn[data-mood="happy"] { background: linear-gradient(45deg, #4CAF50, #45a049); }
+.mood-btn[data-mood="sad"] { background: linear-gradient(45deg, #2196F3, #0b7dda); }
+.mood-btn[data-mood="cute"] { background: linear-gradient(45deg, #E91E63, #c2185b); }
+.mood-btn[data-mood="playful"] { background: linear-gradient(45deg, #FF9800, #e68900); }
+.mood-btn[data-mood="sleepy"] { background: linear-gradient(45deg, #9C27B0, #7b1fa2); }
+.mood-btn[data-mood="crazy"] { background: linear-gradient(45deg, #FF5722, #d84315); }
+.mood-btn[data-mood="chill"] { background: linear-gradient(45deg, #00BCD4, #0097a7); }
+.mood-btn[data-mood="love"] { background: linear-gradient(45deg, #F44336, #d32f2f); }
+
+.loading {
+    display: none;
+    margin: 30px 0;
+    animation: fadeIn 0.5s ease-in;
+}
+
+.spinner {
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    border-top: 5px solid #667eea;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 15px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.cat-display {
+    display: none;
+    margin-top: 30px;
+    animation: fadeIn 0.5s ease-in;
+}
+
+.cat-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.cat-image:hover {
+    transform: scale(1.05);
+}
+
+.cat-info {
+    margin-bottom: 20px;
+}
+
+.cat-mood {
+    font-size: 1.3em;
+    color: #2c3e50;
+    font-weight: bold;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.random-btn {
+    padding: 12px 25px;
+    font-size: 16px;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.random-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+}
+
+.error-message {
+    display: none;
+    color: #e74c3c;
+    background-color: rgba(231, 76, 60, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 20px;
+    border: 1px solid rgba(231, 76, 60, 0.3);
+    animation: fadeIn 0.5s ease-in;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+        margin: 10px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    .moods-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 10px;
+    }
+
+    .mood-btn {
+        padding: 12px 8px;
+        font-size: 14px;
+    }
+}
